@@ -1,0 +1,36 @@
+{% extends 'index.html' %} 
+
+{% block titulo %} 
+ Creación de Cliente
+{% endblock titulo %} 
+
+{% block body %} 
+    <form method="POST">
+        {% csrf_token %}
+        {% if error %}
+            <h2>{{error}}</h2>
+        {% else %}
+  
+            <label>Cedula</label>
+            <input type="number" name = "cedula">
+            <label>Nombres</label>
+            <input type="text" name = "nombre">
+            <label>Apellidos</label>
+            <input type="text" name = "apellido">
+            <label>Edad</label>
+            <input type="number" name = "edad">
+            <label>Fecha de Nacimiento</label>
+            <input type="date" name = "fechaNacimiento">
+            <label>Ciudad de Residencia</label>
+            <input type="text" name = "ciudadResidencia">
+            <label>Tipo de usuario</label>
+            <input type="number" name = "tipoUsuario">
+
+            
+            <button type="submit">Crear</button>
+
+        {% endif%}
+        
+
+    </form>
+{% endblock body %} 

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <title>{% block titulo %}Inicio de Sesión{% endblock titulo %} | AerolineaTuluayork</title>
+    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block extracss %}
+
+
+    {% endblock extracss %}
+
+</head>
+
+<body class="bd-dark">
+    {% block body %}
+
+    <div class="sufee-login d-flex aling-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+                        
+                    </a>
+                </div>
+                <div class="login-form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Nombre de usuario</label>
+                            <input type="text" class="form.control" placeholder="Nombre de Usuario" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" class="form.control" placeholder="Contraseña" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Iniciar Sesión</button>
+                    </form>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+   {% endblock body %}
+
+
+   {% block extrajs %} 
+
+
+   {% endblock extrajs %} 
+
+</body>
+</html>

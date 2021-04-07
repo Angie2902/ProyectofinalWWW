@@ -1,0 +1,18 @@
+{% extends 'index.html' %} 
+
+{% block titulo %} 
+ eliminar cliente
+{% endblock titulo %} 
+
+{% block body %} 
+    <form method="POST">
+        {% csrf_token %}
+
+        <h2>¿Desea eliminar el registro {{cliente.nombre}}?</h2>
+            <button type="submit">Eliminar</button>
+
+  
+        
+
+    </form>
+{% endblock body %}

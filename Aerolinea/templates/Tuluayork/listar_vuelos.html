@@ -1,0 +1,49 @@
+{% extends 'index.html'%}
+
+{% block titulo %}
+  Listado de vuelos
+{% endblock titulo %}
+
+{% block body %}
+  {% if vuelos%}
+  <table>
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Aerolinea</th>
+              <th>Costo</th>
+              <th>#Cupos</th>
+              <th>Fecha de Salida</th>
+              <th>Fecha de Regreso</th>
+              <th>Hora de Salida</th>
+              <th>Hora de Regreso</th>
+              <th>Lugar de origen</th>
+              <th>Lugar Destino</th>
+              <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for Vuelos in vuelos %}
+            <tr>
+                <td>{{ Vuelos.id }}</td>
+                <td>{{ Vuelos.aerolinea }}</td>
+                <td>{{ Vuelos.costo }}</td>
+                <td>{{ Vuelos.NoCupos }}</td>
+                <td>{{ Vuelos.fechaSalida }}</td>
+                <td>{{ Vuelos.fechaLlegada }}</td>
+                <td>{{ Vuelos.horaSalida }}</td>
+                <td>{{ Vuelos.horaLlegada }}</td>
+                <td>{{ Vuelos.LugarSalida }}</td>
+                <td>{{ Vuelos.Destino }}</td>
+                <td>
+                  <a href="{% url 'Tuluayork:editar_vuelo' Vuelos.id%} ">Editar</a>
+                  <a href="{% url 'Tuluayork:eliminar_vuelo' Vuelos.id%} ">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+   </table>
+   {% else %}
+   <h1>No existen vuelos</h1>
+   {% endif %}
+{% endblock body %}

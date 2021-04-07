@@ -1,0 +1,21 @@
+{% extends 'index.html' %} 
+
+{% block titulo %} 
+ Creación de Vuelos
+{% endblock titulo %} 
+
+{% block body %} 
+    <form method="POST">
+        {% csrf_token %}
+        {% if error %}
+            <h2>{{error}}</h2>
+        {% else %}
+
+            {{vuelo_form.as_p}} 
+            <button type="submit">Crear</button>
+
+        {% endif%}
+        
+
+    </form>
+{% endblock body %} 

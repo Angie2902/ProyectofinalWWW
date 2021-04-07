@@ -1,0 +1,42 @@
+{% extends 'index.html'%}
+
+{% block titulo %}
+  Listado de cliente
+{% endblock titulo %}
+
+{% block body %}
+  {% if clientes%}
+  <table>
+      <thead>
+          <tr>
+              <th>Cedula</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Ciudad de Residencia</th>
+              <th>Opciones</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for Cliente in clientes %}
+            <tr>
+                <td>{{ Cliente.cedula }}</td>
+                <td>{{ Cliente.nombre }}</td>
+                <td>{{ Cliente.apellido }}</td>
+                <td>{{ Cliente.edad }}</td>
+                <td>{{ Cliente.fechaNacimiento }}</td>
+                <td>{{ Cliente.ciudadResidencia }}</td>
+                <td>
+                  <a href="{% url 'Tuluayork:editar_cliente' Cliente.cedula%} ">Editar</a>
+                  <a href="{% url 'Tuluayork:eliminar_cliente' Cliente.cedula%} ">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+   </table>
+   {% else %}
+   <h1>No existen clientes</h1>
+   {% endif %}
+{% endblock body %}
